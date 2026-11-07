@@ -1,11 +1,10 @@
-# GWeather
+# LightOS Weather tool with Google Weather as the backend
 
 A weather tool for the Light Phone III that uses Google's Weather API instead of Open-Meteo.
 
-It's a fork of the weather example in the [Light SDK](https://github.com/lightphone/light-sdk). The forecast data comes from Google now, and everything else works the way the original does. Open-Meteo wasn't accurate enough for where I live, so this was my way around that.
+This is a fork of the open-source Weather tool in the [Light SDK](https://github.com/lightphone/light-sdk). The forecast data comes from Google, and everything else works the way the original does. Open-Meteo wasn't accurate enough for where I live, so this was my way around that.
 
-> [!NOTE]
-> Not affiliated with Google or Light.
+Not affiliated with Google or Light.
 
 ---
 
@@ -26,9 +25,9 @@ googleWeatherApiKey=YOUR_KEY
 If you skip this step the app still builds, it just shows "No Google Weather API key" instead of a forecast.
 
 > [!WARNING]
-> Your key is compiled into the APK, so anyone who has the app can pull it out. Restrict it to the Weather API, and set a daily quota cap and a budget alert on your Google Cloud project before you use it. Google gives you a free monthly allowance but bills for calls past that, so check their [pricing](https://developers.google.com/maps/billing-and-pricing/pricing) first.
+> Your key is compiled into the APK. Restrict it to the Weather API, and I'd suggest setting a daily quota cap and a budget alert on your Google Cloud project before you use it. Google gives you a free monthly allowance but bills for calls past that, so check their [pricing](https://developers.google.com/maps/billing-and-pricing/pricing) first.
 
-Each refresh makes three calls (current, daily and hourly). To go easy on your quota, the app reuses the saved forecast for 15 minutes instead of refetching every time you open it.
+Each refresh makes three calls (current, daily and hourly). To minimize chances of hitting your limits, the app reuses the saved forecast for 15 minutes instead of refetching every time you open it.
 
 ---
 
@@ -37,7 +36,7 @@ Each refresh makes three calls (current, daily and hourly). To go easy on your q
 <details>
 <summary>Building from source</summary>
 
-This module isn't a standalone Gradle build. It compiles as a subproject of a local `light-sdk` checkout, the same way other Light SDK tools do.
+This module compiles as a subproject of a local `light-sdk` checkout (like a typical Light SDK tool).
 
 Clone this repo next to the SDK and add this to the bottom of the SDK's `settings.gradle.kts` (local-only, do not commit):
 
@@ -57,9 +56,7 @@ Then, from inside the `light-sdk` checkout:
 ---
 
 ## Good to know
-
-* Location search still goes through Light's proxy, which uses Open-Meteo's geocoding, so Settings credits both Google and Open-Meteo.
-* Google asks for attribution and limits how long you can store their data. Read the [Weather API policies](https://developers.google.com/maps/documentation/weather/policies) before you share a build with anyone.
+* Read the [Weather API policies](https://developers.google.com/maps/documentation/weather/policies) before you share a build with anyone.
 * The tool ID in `lighttool.toml` is `com.zacksimpson.gweather`. Change it (and the imports that go with it) if you want your own.
 
 ## Support
@@ -71,7 +68,3 @@ If any of my tools have been useful to you, I'd love to hear from you! Feel free
 * [The Light Phone](https://www.thelightphone.com) - for building a phone worth making tools for
 * [Google Maps Platform](https://developers.google.com/maps/documentation/weather/overview) - for the Weather API
 * [Open-Meteo](https://open-meteo.com) - for location search, via Light's proxy
-
-## License
-
-[MIT](LICENSE), same as the Light SDK.
