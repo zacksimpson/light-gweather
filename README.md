@@ -22,6 +22,8 @@ googleWeatherApiKey=YOUR_KEY
 
 `local.properties` is gitignored, so it stays on your machine. Please don't commit it!
 
+New to Google Cloud? There's a [step-by-step guide](docs/google-cloud-setup.md) that walks through the project, billing, key, and spending limits.
+
 If you skip this step the app still builds, it just shows "No Google Weather API key" instead of a forecast.
 
 > [!WARNING]
