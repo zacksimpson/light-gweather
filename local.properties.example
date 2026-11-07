@@ -1,0 +1,3 @@
+# copy this file to local.properties (same folder) and paste your google weather api key after the =
+# local.properties is gitignored, so your key stays on your machine. never commit it.
+googleWeatherApiKey=
